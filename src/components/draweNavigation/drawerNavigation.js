@@ -11,7 +11,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function DrawerCustom(props) {
   const navigation = useNavigation();
-
+  const hello = 'Hello World'
   console.log(userId, "ini dari drawer navigation");
   const handleLogout = async () => {
     try {

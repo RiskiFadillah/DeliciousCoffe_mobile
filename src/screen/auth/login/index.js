@@ -57,8 +57,8 @@ export default function LoginPage() {
       })
         .then((res) => {
           AsyncStorage.setItem("userLogin", JSON.stringify(res.data.data));
-          const userId = res.data.user ? res.data.user.id_users : null;
-          navigation.navigate("HomeScreen", { userId });
+
+          navigation.navigate("HomeScreen");
           console.log(res.data.data);
         })
         .catch((err) => {

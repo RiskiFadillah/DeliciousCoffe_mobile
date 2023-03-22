@@ -9,9 +9,9 @@ import stylesDrawer from "./styles/index";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function DrawerCustom({ props, route }) {
+export default function DrawerCustom(props) {
   const navigation = useNavigation();
-  const { userId } = route.params;
+
   console.log(userId, "ini dari drawer navigation");
   const handleLogout = async () => {
     try {

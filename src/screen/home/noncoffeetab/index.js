@@ -3,9 +3,15 @@ import axios from "axios";
 import { View, Text, ScrollView, Image } from "react-native";
 import styleHome from "../styles/stylehome";
 import commonStyle from "../../../../assets/styles/commonStyle";
+import { useNavigation } from "@react-navigation/native";
 const NonCoffeTab = (props) => {
+  const navigation = useNavigation();
   const [dataNonCoffee, setDataNonCoffee] = useState(null);
   const [refetch, setRefetch] = useState(false);
+
+  const handleProductPress = (productId) => {
+    navigation.navigate("Detail-Product", { productId });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,7 +67,12 @@ const NonCoffeTab = (props) => {
               )}
               <View style={styleHome.card}>
                 <View style={{ marginBottom: 30 }}>
-                  <Text style={styleHome.productTitle}>{item.title}</Text>
+                  <Text
+                    style={styleHome.productTitle}
+                    onPress={() => handleProductPress(item.id)}
+                  >
+                    {item.title}
+                  </Text>
                   <Text style={styleHome.productPrice}>IDR {item.price}</Text>
                 </View>
               </View>

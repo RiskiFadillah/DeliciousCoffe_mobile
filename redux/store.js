@@ -1,17 +1,8 @@
-// src/store.js
+import { configureStore } from "@reduxjs/toolkit";
+import reducerCart from "./reducerCart";
 
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import thunk from "redux-thunk";
-import { ProductsReducer } from "./reducerProduct";
-
-const rootReducer = combineReducers({
-  product: ProductsReducer,
+export default configureStore({
+  reducer: {
+    cart: reducerCart,
+  },
 });
-
-// const store = createStore(rootReducer, applyMiddleware(thunk));
-const configureStore = () => {
-  const store = createStore(rootReducer, applyMiddleware(thunk));
-  return { store };
-};
-
-export default configureStore;

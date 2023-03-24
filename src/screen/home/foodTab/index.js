@@ -3,9 +3,16 @@ import { View, Text, ScrollView, Image } from "react-native";
 import styleHome from "../styles/stylehome";
 import commonStyle from "../../../../assets/styles/commonStyle";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 const FoodTab = (props) => {
+  const navigation = useNavigation();
   const [dataFood, setDataFood] = useState(null);
   const [refetch, setRefetch] = useState(false);
+
+  const handleProductPress = (productId) => {
+    navigation.navigate("Detail-Product", { productId });
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,7 +33,7 @@ const FoodTab = (props) => {
     };
     fetchData();
   }, [refetch, props.searchInput]);
-  //console.log(dataFood);
+
   return (
     <ScrollView horizontal>
       {dataFood &&
@@ -60,7 +67,12 @@ const FoodTab = (props) => {
               )}
               <View style={styleHome.card}>
                 <View style={{ marginBottom: 30 }}>
-                  <Text style={styleHome.productTitle}>{item.title}</Text>
+                  <Text
+                    style={styleHome.productTitle}
+                    onPress={() => handleProductPress(item.id)}
+                  >
+                    {item.title}
+                  </Text>
                   <Text style={styleHome.productPrice}>IDR {item.price}</Text>
                 </View>
               </View>

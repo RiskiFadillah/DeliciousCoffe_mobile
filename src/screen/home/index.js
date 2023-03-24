@@ -18,9 +18,6 @@ import { ScrollView } from "react-native-gesture-handler";
 export default function HomeScreen() {
   const [dataFavorite, setDataFavorite] = useState(null);
   const [searchText, setSearchText] = useState("");
-  const [dataFood, setDataFood] = useState(null);
-  const [dataCoffee, setDataCoffee] = useState(null);
-  const [dataNonCoffee, setDataNonCoffee] = useState(null);
   const navigation = useNavigation();
   const [refetch, setRefetch] = useState(false);
 
@@ -45,7 +42,8 @@ export default function HomeScreen() {
     };
     fetchData();
   }, [refetch, searchText]);
-  // console.log(searchText);
+
+
   const [activeTab, setActiveTab] = useState(null);
   const renderTab = () => {
     switch (activeTab) {
@@ -82,9 +80,9 @@ export default function HomeScreen() {
             value={searchText}
           />
         </View>
-        <View>
+        <ScrollView>
           <View>
-            <View style={{ flexDirection: "row" }}>
+            <View style={{ flexDirection: "row", justifyContent: "center" }}>
               <CustomTab
                 activeTab={activeTab}
                 tabName="Favorite"
@@ -106,26 +104,10 @@ export default function HomeScreen() {
                 onPress={() => setActiveTab("Non Coffe Tab")}
               />
             </View>
-            <Pressable
-              style={{
-                display: "flex",
-                justifyContent: "flex-end",
-                flexDirection: "row",
-                width: "100%",
-                marginLeft: -30,
-                marginBottom: 20,
-              }}
-              onPress={() => {
-                navigation.navigate("Login");
-              }}
-            >
-              <Text style={{ color: "#6A4029", fontWeight: "700" }}>
-                See More
-              </Text>
-            </Pressable>
+
             {renderTab()}
           </View>
-        </View>
+        </ScrollView>
       </View>
     </ScrollView>
   );

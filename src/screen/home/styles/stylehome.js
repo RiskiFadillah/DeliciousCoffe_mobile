@@ -5,7 +5,7 @@ const styleHome = StyleSheet.create({
     fontSize: 34,
     color: "#333",
     fontWeight: "700",
-    marginTop: "5%",
+    marginTop: "15%",
     marginLeft: 50,
   },
   sectionTitle: {

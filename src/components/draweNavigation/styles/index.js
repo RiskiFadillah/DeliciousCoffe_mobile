@@ -1,22 +1,17 @@
 import { StyleSheet } from "react-native";
 
 const stylesDrawer = StyleSheet.create({
-  drawer: {
-    borderTopRightRadius: 20,
-    borderBottomRightRadius: 20,
-    overflow: "hidden",
-  },
   drawerHeader: {
-    height: 180,
+    height: 280,
     backgroundColor: "#6A4029",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 50,
   },
-  drawerHeaderText: {
-    fontSize: 30,
-    fontWeight: "bold",
-    color: "#6379F4",
+  drawerHeaderImg: {
+    width: 120,
+    height: 120,
+    borderRadius: 100,
   },
   logoutButton: {
     marginHorizontal: 16,
@@ -24,7 +19,7 @@ const stylesDrawer = StyleSheet.create({
     padding: 16,
     backgroundColor: "red",
     borderRadius: 8,
-    marginTop: 180,
+    marginTop: 10,
   },
   logoutButtonText: {
     fontSize: 16,

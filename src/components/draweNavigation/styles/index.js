@@ -6,7 +6,8 @@ const stylesDrawer = StyleSheet.create({
     backgroundColor: "#6A4029",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 50,
+    marginBottom: 20,
+    borderBottomWidth: 1,
   },
   drawerHeaderImg: {
     width: 120,
@@ -17,15 +18,13 @@ const stylesDrawer = StyleSheet.create({
     marginHorizontal: 16,
     marginVertical: 8,
     padding: 16,
-    backgroundColor: "red",
     borderRadius: 8,
-    marginTop: 10,
+    marginTop: 5,
   },
   logoutButtonText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "white",
-    textAlign: "center",
+    color: "#6A4029",
   },
   sceneContainer: {
     backgroundColor: "white",

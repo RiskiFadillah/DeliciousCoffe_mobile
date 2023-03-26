@@ -67,7 +67,9 @@ const FavoriteTab = (props) => {
                   <View style={{ marginBottom: 30 }}>
                     <Text
                       style={styleHome.productTitle}
-                      onPress={() => handleProductPress(item.id)}
+                      onPress={() => {
+                        navigation.navigate("Detail-Product", item);
+                      }}
                     >
                       {item.title}
                     </Text>

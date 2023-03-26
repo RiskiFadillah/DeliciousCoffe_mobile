@@ -30,7 +30,8 @@ const stylesWelcome = StyleSheet.create({
     backgroundColor: "#6A4029",
     padding: 15,
     borderRadius: 5,
-    marginBottom: 10,
+    marginBottom: 30,
+    marginTop: 30,
   },
   buttonText: {
     color: "white",

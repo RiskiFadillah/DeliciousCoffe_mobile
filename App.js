@@ -19,6 +19,12 @@ import WelcomePage from "./src/welcomesecreen/welcome";
 import FavoriteProduct from "./src/screen/favoriteProducts";
 import DetailProduct from "./src/screen/detailProduct";
 import CartProduct from "./src/screen/cart";
+import CheckoutProduct from "./src/screen/checkOut";
+import PaymentScreen from "./src/screen/Payment";
+import StatusPayment from "./src/screen/statusPayment";
+import MyProfile from "./src/screen/userProfile/myProfile";
+import EditProfile from "./src/screen/userProfile/editProfile";
+import HistoryProduct from "./src/screen/history";
 
 //Style
 import stylesDrawer from "./src/components/draweNavigation/styles";
@@ -30,14 +36,18 @@ export default function App() {
         initialRouteName="HomeScreen"
         screenOptions={{
           headerShown: false,
-          drawerActiveTintColor: "#fff",
-          drawerActiveBackgroundColor: "#6379F4",
+          drawerActiveTintColor: "#6A4029",
+          drawerActiveBackgroundColor: "#fff",
         }}
         drawerContent={(props) => <DrawerCustom {...props} />}
         drawerStyle={stylesDrawer.drawer}
         sceneContainerStyle={stylesDrawer.sceneContainer}
       >
         <Drawer.Screen name="🏚 Home" component={HomeScreen} />
+        <Drawer.Screen name="🛒 Orders" component={CartProduct} />
+        <Drawer.Screen name="😊 Edit Profile" component={MyProfile} />
+        <Drawer.Screen name="📃 Privacy policy" component={FavoriteProduct} />
+        <Drawer.Screen name="🛡 Security" component={FavoriteProduct} />
       </Drawer.Navigator>
     );
   };
@@ -79,6 +89,36 @@ export default function App() {
           <Stack.Screen
             name="Cart-Product"
             component={CartProduct}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Checkout-Product"
+            component={CheckoutProduct}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Payment-Method"
+            component={PaymentScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Status-Payment"
+            component={StatusPayment}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="My Profile"
+            component={MyProfile}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Edit Profile"
+            component={EditProfile}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="History"
+            component={HistoryProduct}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

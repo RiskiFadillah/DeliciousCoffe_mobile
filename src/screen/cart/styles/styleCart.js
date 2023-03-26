@@ -8,16 +8,13 @@ const styleCart = StyleSheet.create({
   cardWrap: {
     display: "flex",
     width: Dimensions.get("window").width / 1,
-    padding: 15,
+    padding: 25,
     alignItems: "center",
   },
   card: {
     flexDirection: "row",
-    backgroundColor: "#fff",
-    borderWidth: 0.4,
-    borderColor: "#000",
     height: 102,
-    width: 315,
+    width: "100%",
     borderRadius: 30,
     marginTop: 15,
     justifyContent: "space-around",

@@ -15,7 +15,7 @@ const DetailProduct = ({ route }) => {
   const navigation = useNavigation();
   const [dataProduct, setDataProduct] = useState(null);
   const [refetch, setRefetch] = useState(false);
-
+  const [error, setError] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,7 +39,26 @@ const DetailProduct = ({ route }) => {
     dispatch(addToCart(item));
   };
 
- 
+  if (error) {
+    return (
+      <View>
+        <Text>Error: {error.message}</Text>
+      </View>
+    );
+  }
+
+  if (!dataProduct) {
+    return (
+      <View>
+        <Image
+          source={{
+            uri: "https://res.cloudinary.com/doxeoixv4/image/upload/v1679720641/img-coffesop/gifcoffe_h2kbxp.webp",
+          }}
+          style={{ width: "100%", height: "100%" }}
+        />
+      </View>
+    );
+  }
 
   return (
     <>

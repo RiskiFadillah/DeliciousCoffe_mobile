@@ -1,14 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  Image,
-  Pressable,
-  FlatList,
-  TextInput,
-} from "react-native";
+import { Text, View, Image, Pressable, FlatList } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
@@ -22,7 +14,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 // Style
 import styleCart from "./styles/styleCart";
 
-const CartProduct = ({ route }) => {
+const CartProduct = () => {
   // REDUX
   var totalPrice = 0;
   const [totalPriceState, setTotalPriceState] = useState("");
@@ -99,9 +91,9 @@ const CartProduct = ({ route }) => {
           data={cart}
           renderItem={({ item, index }) => {
             totalPrice += parseInt(item.price) * item.quantity;
-            setTotalPriceState(totalPrice.toFixed(3));
+            setTotalPriceState(totalPrice);
 
-            const price = (parseInt(item.price) * item.quantity).toFixed(3);
+            const price = parseInt(item.price) * item.quantity;
             return (
               <View key={index} style={styleCart.card}>
                 <View style={{ width: "30%" }}>
@@ -123,19 +115,18 @@ const CartProduct = ({ route }) => {
                   style={{
                     width: "30%",
                     flexDirection: "row",
-                    backgroundColor: "#FFBA33",
-                    borderRadius: 10,
+                    backgroundColor: "#6A4029",
+                    borderRadius: 30,
                     borderColor: "#895537",
                     borderWidth: 1,
-                    marginRight: 6,
-                    paddingVertical: 6,
+                    paddingVertical: 1,
                   }}
                 >
                   <Pressable onPress={() => decreaseQuantity(item)}>
                     <Text
                       style={{
                         fontSize: 20,
-                        color: "#000",
+                        color: "#fff",
                         paddingHorizontal: 10,
                       }}
                     >
@@ -146,7 +137,7 @@ const CartProduct = ({ route }) => {
                     <Text
                       style={{
                         fontSize: 20,
-                        color: "#000",
+                        color: "#fff",
                         paddingHorizontal: 10,
                       }}
                     >
@@ -157,7 +148,7 @@ const CartProduct = ({ route }) => {
                     <Text
                       style={{
                         fontSize: 20,
-                        color: "#000",
+                        color: "#fff",
                         paddingHorizontal: 10,
                       }}
                     >
@@ -203,7 +194,7 @@ const CartProduct = ({ route }) => {
         <></>
       )}
 
-      <Pressable style={{ position: "absolute", bottom: 120, right: 90 }}>
+      <Pressable style={{ position: "absolute", bottom: 90, right: 90 }}>
         <Text
           style={[styleCart.btn_primary, styleCart.addItem]}
           onPress={() => {
@@ -213,12 +204,12 @@ const CartProduct = ({ route }) => {
           Add more item
         </Text>
       </Pressable>
-      <Pressable style={{ position: "absolute", bottom: 45, right: 60 }}>
+      <Pressable style={{ position: "absolute", bottom: 15, right: 60 }}>
         <Text
           style={[styleCart.btn_primary, styleCart.confirmAndCheckout]}
           onPress={() => {
             if (cart.length > 0) {
-              navigation.navigate("DeliveryMethod", {
+              navigation.navigate("Checkout-Product", {
                 totalPriceState: parseInt(totalPriceState),
               });
             } else {

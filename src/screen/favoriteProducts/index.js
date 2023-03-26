@@ -46,7 +46,10 @@ const FavoriteProduct = () => {
         >
           Everyone's Favorite
         </Text>
-        <ScrollView contentContainerStyle={{ paddingBottom: 200 }}>
+        <ScrollView
+          contentContainerStyle={{ paddingBottom: 200 }}
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styleFavorite.cardWrapper}>
             {dataFavorite &&
               dataFavorite.map((item) => {

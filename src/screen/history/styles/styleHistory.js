@@ -5,6 +5,7 @@ const styleHistory = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     marginTop: 40,
+    marginBottom: 30,
   },
 
   buttonProfile: {
@@ -40,7 +41,7 @@ const styleHistory = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     padding: 20,
-    marginTop: 30,
+    marginTop: 10,
     gap: 20,
     backgroundColor: "white",
     borderRadius: 20,

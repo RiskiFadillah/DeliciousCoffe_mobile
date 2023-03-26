@@ -30,10 +30,15 @@ const HistoryProduct = ({ route }) => {
   console.log(dataHistory);
   return (
     <>
-      <ScrollView style={styleHistory.container}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styleHistory.container}
+      >
         <FontAwesome5 name="chevron-left" size={20} />
         <View style={{ marginTop: 30 }}>
-          <Text style={{ fontSize: 30, fontWeight: "900" }}>Order History</Text>
+          <Text style={{ fontSize: 30, fontWeight: "900", marginBottom: 30 }}>
+            Order History
+          </Text>
         </View>
         {dataHistory &&
           dataHistory.map((item) => {
@@ -73,7 +78,7 @@ const HistoryProduct = ({ route }) => {
                       IDR {item.price}
                     </Text>
                     <Text style={{ fontSize: 12, color: "#6A4029" }}>
-                      Delivery on {item.time}
+                      {item.time}
                     </Text>
                   </View>
                 </View>

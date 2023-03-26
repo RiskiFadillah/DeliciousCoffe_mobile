@@ -32,7 +32,7 @@ const FavoriteTab = (props) => {
           <Text style={{ color: "#6A4029", fontWeight: "700" }}>See More</Text>
         </Pressable>
       </View>
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {Favorite &&
           Favorite.map((item) => {
             return (

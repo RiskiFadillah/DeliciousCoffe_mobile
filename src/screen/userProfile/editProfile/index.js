@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import axios from "axios";
 import RadioGroup from "react-native-radio-buttons-group";
+import * as ImagePicker from "expo-image-picker";
 
 // styleEditProfile
 import styleEditProfile from "./styles/styleEdit";
@@ -21,6 +22,41 @@ const EditProfile = ({ route }) => {
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const navigation = useNavigation();
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageUri, setImageUri] = useState(null);
+
+  //   Image Picker
+
+  const pickImageAsync = async () => {
+    let result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    console.log(result);
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+      handleCloseModal();
+    } else {
+      alert("You did not select any image.");
+    }
+  };
+
+  const chooseImage = () => {
+    ImagePicker.getMediaLibraryPermissionsAsync(
+      {
+        mediaType: "photo",
+        includeBase64: false,
+      },
+      (response) => {
+        if (response.uri) {
+          setImageUri(response.uri);
+        }
+      }
+    );
+  };
 
   const handleDateChange = (newDate) => {
     setDate(newDate);
@@ -67,26 +103,22 @@ const EditProfile = ({ route }) => {
           </Text>
         </View>
         <View style={styleEditProfile.containerImg}>
-          {img ? (
+          {selectedImage ? (
+            <Image
+              source={{ uri: selectedImage }}
+              style={styleEditProfile.imgProfile}
+            />
+          ) : (
             <Image
               source={{
                 uri: img,
               }}
               style={styleEditProfile.imgProfile}
             />
-          ) : (
-            <Image
-              source={{
-                uri: "https://res.cloudinary.com/doxeoixv4/image/upload/v1679451410/img-coffesop/welcome2_tj8h3g.png",
-              }}
-              style={styleEditProfile.imgProfile}
-            />
           )}
           <TouchableOpacity
             style={styleEditProfile.editIconContainer}
-            onPress={() => {
-              navigation.navigate("Edit Profile", userProfile.user);
-            }}
+            onPress={pickImageAsync}
           >
             <FontAwesome5
               name="pen"

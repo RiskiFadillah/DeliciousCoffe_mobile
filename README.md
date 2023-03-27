@@ -1,11 +1,10 @@
 # Delicious Coffeshop
 
-Delicious Coffeshop is application mobile (android & ios) for Order food and drink .this project build with framework/library React Native, Redux, and Expo. In the backend using Node JS, Express JS, and PostgreSQL for the database 
-
+Delicious Coffeshop is application mobile (android) for Order food and drink. you can buy food and drinks without having to bother
 
 ## Tech
 
-Delicious Coffeshop uses a number of open source projects to work properly:
+Delicious Coffeshop using a framework/library :
 
 [![N|Solid](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://nodesource.com/products/nsolid)
 [![N|Solid](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://nodesource.com/products/nsolid)

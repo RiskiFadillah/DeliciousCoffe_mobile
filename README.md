@@ -14,7 +14,7 @@ Delicious Coffeshop using a framework/library :
 [![N|Solid](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)](https://nodesource.com/products/nsolid)
 
 ## Installation
-Download Apk for Android : https://drive.google.com/drive/folders/1__i3XQ87HCuZFzl5OGFWXJZUh9m6qe5i?usp=share_link
+Download Apk for Android : https://bit.ly/delicious-coffeshop
 
 ## Image Review
 
